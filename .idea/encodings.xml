@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/api-autotest/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-autotest/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/note-for-java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/note-for-java/src/main/resources" charset="UTF-8" />
   </component>
 </project>

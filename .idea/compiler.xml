@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-autotest" />
+        <module name="note-for-java" />
       </profile>
     </annotationProcessing>
   </component>
