@@ -4,7 +4,7 @@
 - 去除空白
 - 比较
 - 去除首尾空白字符串
-- 替换子串
+- 替换子串 
 
 # StringBuilder
 链式操作
@@ -18,3 +18,4 @@
         sb.append(", tian").append(" love");
 
 ```
+StringBuilder 跟buffer类一致，
