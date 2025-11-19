@@ -20,3 +20,20 @@ Unchecked的本质：运行时才check，像开车不系安全带——出事了
 捕获异常时，多个catch语句的匹配顺序非常重要，子类必须放在前面;
 finally语句保证了有无异常都会执行，它是可选的；
 一个catch语句也可以匹配多个非继承关系的异常。
+
+# 常见的异常
+Exception
+├─ RuntimeException
+│  ├─ NullPointerException
+│  ├─ IndexOutOfBoundsException
+│  ├─ SecurityException
+│  └─ IllegalArgumentException
+│     └─ NumberFormatException
+├─ IOException
+│  ├─ UnsupportedCharsetException
+│  ├─ FileNotFoundException
+│  └─ SocketException
+├─ ParseException
+├─ GeneralSecurityException
+├─ SQLException
+└─ TimeoutException
