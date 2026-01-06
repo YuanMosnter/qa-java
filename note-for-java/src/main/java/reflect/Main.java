@@ -1,23 +1,47 @@
 package reflect;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+
 public class Main {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
-    public static void main(String[] args) throws NoSuchFieldException {
-        Class<Student> studentClass = Student.class;
-        //获取score字段
-        System.out.println(studentClass.getField("score"));
+        Class<Person> personClass = Person.class;
 
-        System.out.println(studentClass.getField("name"));
+        System.out.println(personClass);
 
-        System.out.println(studentClass.getDeclaredField("grade"));
+        Field[] fields = personClass.getDeclaredFields();
+        for (Field field : fields) {
+            System.out.println(field);
+        }
+        System.out.println();
+
+        Person zhangsan = new Person("zhangsan", 11);
+
+        Class<? extends Person> aClass = zhangsan.getClass();
+
+        Field name = null;
+        try {
+            //1、创建实例。2、根据实例获取类。3、根据实例获取指定的字段。4、设置字段不管是不是private据可以访问5、获取实例对象的具体名称字段
+            name = aClass.getDeclaredField("name");
+            System.out.println(name);
+            name.setAccessible(true);
+            name.set(zhangsan, "Xiao Hong");
+            Object o = name.get(zhangsan);
+            System.out.println(o);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        //点用构造方法
+        Constructor<Integer> constructor = Integer.class.getConstructor(int.class);
+        Integer i = (Integer)constructor.newInstance(123);
+        System.out.println(i);
+
+        //获取构造方法
+
 
     }
-}
-class Student extends Person {
-    public int score;
-    private int grade;
-}
-
-class Person {
-    public String name;
 }
