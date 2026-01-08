@@ -1,8 +1,6 @@
 package reflect;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.*;
 
 public class Main {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
@@ -42,6 +40,35 @@ public class Main {
 
         //获取构造方法
 
+        // 大多数调用
+        HelloWord helloWord = new HelloWord();
+        helloWord.morning("Bob");
 
+        // 动态代理
+        InvocationHandler invocationHandler = new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+                System.out.println(method);
+                if (method.getName().equals("morning")){
+                    System.out.println("Good Morning" +args[0]);
+                }else if ( method.getName().equals("fly")){
+                   {
+                        System.out.println(args[0] +" is flying " );
+                    }
+                }
+                return null;
+            }
+        };
+
+        Flyable fly = (Flyable)Proxy.newProxyInstance(Hello.class.getClassLoader(),// 家在classLoader
+                new Class[]{Hello.class,Flyable.class}, invocationHandler
+        );
+
+        fly.fly(" bird");
+
+    }
+    interface  Flyable{
+        void fly(String name);
     }
 }

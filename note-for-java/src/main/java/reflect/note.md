@@ -12,3 +12,9 @@ class 获取跟instanceof的区别
 用instanceof不但匹配指定类型，还匹配指定类型的子类
 
 ## 动态加载
+
+
+## 动态代理
+1、先定义接口
+2、Proxy.newProxyInstance() 然后用这个方法去创建Hello的接口对象方式
+3、
