@@ -1,5 +1,8 @@
 package reflect;
 
+import annotation.Report;
+
+@Report(type = 1, value = "测试",level = "ceshi")
 public class Person {
 
     private String name;
