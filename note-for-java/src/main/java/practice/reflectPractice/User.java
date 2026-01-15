@@ -1,4 +1,4 @@
-package practice;
+package practice.reflectPractice;
 
 public class User {
     @Label("核型")@Label("唯一注解")

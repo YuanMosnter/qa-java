@@ -1,9 +1,9 @@
-package practice;
+package practice.reflectPractice;
 
 public class CheckResult <T>{
-    private String status;
-    private String log;
-    private T targetObject ;
+    private final String  status;
+    private final String log;
+    private final  T targetObject ;
 
     public CheckResult(String status, String log, T targetObject) {
         this.status = status;

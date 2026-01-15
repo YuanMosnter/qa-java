@@ -1,4 +1,4 @@
-package practice;
+package practice.reflectPractice;
 
 import java.lang.annotation.*;
 
