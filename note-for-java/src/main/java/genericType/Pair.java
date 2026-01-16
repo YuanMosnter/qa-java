@@ -1,6 +1,6 @@
 package genericType;
 
-public class Pair<T>{
+public class Pair<T extends Number>{
 
     private T first;
     private T last ;
@@ -37,7 +37,7 @@ public class Pair<T>{
                 '}';
     }
 
-    public static <K>Pair<K> create(K first, K last) {
+    public static <K extends Number>Pair<K> create(K first, K last) {
         return new Pair<K>(first, last);
     }
 }

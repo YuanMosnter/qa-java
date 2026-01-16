@@ -40,3 +40,44 @@ Java的泛型是采用擦拭法实现的；
 - 不能实例化T类型，例如：new T()。
 - 泛型方法要防止重复定义方法，例如：public boolean equals(T obj)；
 - 子类可以获取父类的泛型类型<T>。
+# extends通配符
+
+## extends通配符的作用
+- 允许调用get()方法获取Integer的引用； 
+- 不允许调用set<? extends Integer> 并传入任何Integer的引用
+  即一句话总结：使用extends通配符表示可以读，不能写。
+
+## 使用extends限定T类型
+- 使用类似<T extends Number>定义泛型类时表示：
+- 泛型类型限定为Number以及Number的子类。
+
+# super 通配符
+
+使用<? super Integer>通配符表示：
+
+- 允许调用set(? super Integer)方法传入Integer的引用；
+- 不允许调用get()方法获得Integer的引用。
+  唯一例外是可以获取Object的引用：Object o = p.getFirst()。
+
+换句话说，使用<? super Integer>通配符作为方法参数，表示方法内部代码对于参数只能写，不能读。
+
+
+# 对比extends和super通配符
+
+- <? extends T>允许调用读方法T get()获取T的引用，但不允许调用写方法set(T)传入T的引用（传入null除外）；
+- <? super T>允许调用写方法set(T)传入T的引用，但不允许调用读方法T get()获取T的引用（获取Object除外）。
+一个是允许读不允许写，另一个是允许写不允许读。
+
+# PECS原则
+
+如果需要返回T，它是生产者（Producer），要使用extends通配符；如果需要写入T，它是消费者（Consumer），要使用super通配符。
+
+
+# 无限定通配符
+
+因为<?>通配符既没有extends，也没有super，因此：
+- 不允许调用set(T)方法并传入引用（null除外）；
+- 不允许调用T get()方法并获取T引用（只能获取Object引用）。
+
+
+
