@@ -40,6 +40,77 @@ List 是一种最基础集合，它是一种有序列表
 通常情况下，我们总是优先使用ArrayList。
 
 
+# List和Array转换
 
+- 直接调用toArray()
+这种方式会丢失类型信息，实际使用的很少
+```java
+public static void main(String[] args) {
+    List<String> l1 = List.of("apple", "pear", "banana");
+    Object[] array = l1.toArray();
+    for (Object obj : array) {
+        System.out.println(obj);
+    }
+}
 
+```
+
+- 是给toArray(T[])传入一个类型相同的Array
+
+传入一个对应类型的数组
+```java
+public static void main(String[] args) {
+
+    List<Integer> list = List.of(123, 234, 22);
+    Integer[] array = list.toArray(new Integer[3]);
+    for (Integer integer : array) {
+        System.out.println(integer);
+    }
+}
+```
+
+- 函数式 
+```java
+public static void main(String[] args) {
+
+        List<Integer> list = List.of(123, 234, 22);
+        Integer[] array = list.toArray(Integer[]::new);
+        for (Integer integer : array) {
+            System.out.println(integer);
+        }
+    }
+```
+
+## List和Array转换
+
+- jdk11之后 使用asList方法返 。也是一个只读
+```java
+ public static void main(String[] args) {
+        Integer[] array = { 1, 2, 3 };
+
+        List<Integer> list = Arrays.asList(array);
+        list.add(4);
+        for (Integer i : list) {
+            System.out.println(i);
+        }
+
+    }
+```
+- jdk11之后 List.of() 方式转。换回一个只读的list如果调用add跟remove的时候会有报错
+```java
+ public static void main(String[] args) {
+        List<Integer> integers = List.of(1, 2, 3);// 不可变对象。
+        
+
+    }
+```
+
+# 编写Equals 
+equals()方法要求我们必须满足以下条件：
+- 自反性
+- 对称性
+- 传递性
+- 一致性
+- 对null的比较，永远返回false
+- 
 
